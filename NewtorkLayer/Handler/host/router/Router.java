@@ -26,6 +26,11 @@ public class Router extends Host implements  Runnable{
             System.out.println("We found route!" + this.ip);
         }
     }
+
+    public static void RIPprotocol(){
+        //MAKE TABLE FILL
+    }
+
     public void run(){
         while (true){
             if (!packetsIN.isEmpty()){
