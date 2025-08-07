@@ -1,8 +1,7 @@
-package NewtorkLayer.Handler;
+package networkLayer;
 
 public class IP {
     private String ip;
-    static IP BROADCASTip = new IP("255.255.255.255");
 
     public IP(String ip){
         this.ip = ip;
@@ -12,7 +11,6 @@ public class IP {
         return ip;
     }
 
-    //ебаные обьедки
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

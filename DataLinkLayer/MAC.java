@@ -1,18 +1,17 @@
-package DataLinkLayer;
-
-import NewtorkLayer.Handler.IP;
+package dataLinkLayer;
 
 public class MAC {
-    public String mac ;
+    private String mac;
 
-    public MAC(String macAdress){
-        this.mac = macAdress;
+    public MAC(String mac){
+        this.mac = mac;
     }
 
-    public String toString() {
+    public  String toString(){
         return mac;
     }
 
+    //ебаные обьедки
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -20,4 +19,10 @@ public class MAC {
         MAC other = (MAC) obj;
         return this.mac.equals(other.mac);
     }
+
+    @Override
+    public int hashCode() {
+        return mac.hashCode();
+    }
+
 }
