@@ -22,6 +22,15 @@ public class IP {
     @Override
     public int hashCode() {
         return ip.hashCode();
+
+    }
+
+    public String get_ip(){
+        return ip;
+    }
+
+    public boolean fuck(Object obj){
+        return get_ip() != null;
     }
 
 }
