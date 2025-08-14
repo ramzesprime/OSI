@@ -1,6 +1,8 @@
 package networkLayer;
 
 
+import app.ColorManager;
+
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.concurrent.BlockingQueue;
@@ -13,20 +15,30 @@ public class Host implements Runnable{
     private IP gateway;
     private final int TTL = 10; // HOPS
 
-    public Host (IP hostIP, LinkedList<IP> hostInterfaces,IP gateway){
+    public IP getHostIP() {
+        return hostIP;
+    }
+
+    public IP getGateway() {
+        return gateway;
+    }
+
+    public Host (IP hostIP, LinkedList<IP> hostInterfaces, IP gateway){
         this.hostIP = hostIP;
         this.hostInterfaces = hostInterfaces;
         this.gateway = gateway;
         hostsQueue.put(hostIP,hostReceiveQueue);
     }
 
+    ColorManager mycolor = new ColorManager(1);
+
     public IP hostIP;
     public LinkedList<IP> hostInterfaces;
     public BlockingQueue<Datagram> hostReceiveQueue = new LinkedBlockingQueue<>();
 
-    private final String whoOK = "\u001B[32m" + "//HOST//" + "\u001B[32m";
-    private final String whoMID = "\u001B[33m" + "//HOST//" + "\u001B[33m";
-    private final String whoSHIT = "\u001B[31m" + "//HOST//" + "\u001B[31m";
+    private final String whoOK = mycolor.get_whoOK();
+    private final String whoMID = mycolor.get_whoMID();
+    private final String whoSHIT = mycolor.get_whoSHIT();
 
     public void sendPacket(IP sender, IP receiver, String data) throws InterruptedException {
         if (!hostInterfaces.isEmpty()){

@@ -1,5 +1,6 @@
 package networkLayer.router;
 
+import app.ColorManager;
 import networkLayer.Datagram;
 import networkLayer.Host;
 import networkLayer.IP;
@@ -8,9 +9,11 @@ import java.util.LinkedList;
 
 public class Router extends Host implements Runnable{
 
-    private final String whoOK = "\u001B[32m" + "//ROUTER//" + "\u001B[32m";
-    private final String whoMID = "\u001B[33m" + "//ROUTER//" + "\u001B[33m";
-    private final String whoSHIT = "\u001B[31m" + "//ROUTER//" + "\u001B[31m";
+    ColorManager mycolor = new ColorManager(2);
+
+    private final String whoOK = mycolor.get_whoOK();
+    private final String whoMID = mycolor.get_whoMID();
+    private final String whoSHIT = mycolor.get_whoSHIT();
 
     public Router (IP hostIP, LinkedList<IP> hostInterfaces, IP gateway){
         super(hostIP,hostInterfaces,gateway);
