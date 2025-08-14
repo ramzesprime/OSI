@@ -10,7 +10,7 @@ The current workspace has a console interface for user interaction.
 Also, standard structures for future development (IP type, HOST type, MAC type, etc.) are implemented.
 Simple network creation methods are applied.
 
-example of sending datagram
+
 ![Example2](readme/3.png)
 
 In the future, it is planned to implement subsequent OSI levels (the operating principle is based on data encapsulation)
